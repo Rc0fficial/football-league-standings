@@ -23,7 +23,7 @@ export const Football = () => {
         // Specify the league names you want to find
         const leaguesToFind = ["Premier League", "Serie A", "Ligue 1", "Bundesliga", "La Liga"];
         
-        // Create an array to store the found leagues
+        // Create an array to store the found leagues with names and IDs
         const foundLeaguesArray = [];
 
         // Log the actual league names returned by the API
@@ -36,7 +36,7 @@ export const Football = () => {
           );
 
           if (foundLeague) {
-            foundLeaguesArray.push(foundLeague);
+            foundLeaguesArray.push({ name: foundLeague.league.name, id: foundLeague.league.id });
             console.log(`${leagueName} found:`, foundLeague);
             // Continue with the next steps or set state with the league data
           } else {
@@ -45,7 +45,7 @@ export const Football = () => {
           }
         });
 
-        // Log the array of found leagues
+        // Log the array of found leagues with names and IDs
         console.log("Found Leagues Array:", foundLeaguesArray);
 
       } catch (error) {
